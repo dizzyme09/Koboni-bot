@@ -1,0 +1,15 @@
+{
+	"name": "koboni-bot",
+	"version": "1.0.0",
+	"description": "a bot named koboni that will help your server with her sloopy commands!",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "dizzyme09",
+	"license": "ISC",
+	"dependencies": {
+		"discord.js": "^14.7.1"
+	}
+}
