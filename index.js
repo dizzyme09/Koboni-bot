@@ -1,5 +1,5 @@
-const Discord = require("discord.js");
-const bot = new Discord.Client();
+const {Client, MessageEmbed} = require("discord.js");
+const bot = new Client();
 const dotenv = require('dotenv');
 
 dotenv.config({ path: "./config.env"});
@@ -36,6 +36,15 @@ bot.on("message", (msg) => {
 					break;
 				}
 			}
+			case "embed":
+				const embed = new MessageEmbed()
+				.setTitle("Bot Info")
+				.setColor(0x00ff00)
+				.addField("Name: ", "Koboni")
+				.addField("Author: ", "Dizzyme09")
+				.addField("Version: ", VERSION);
+				msg.channel.send(embed);
+				break;
 	}
 });
 
