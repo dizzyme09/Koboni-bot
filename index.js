@@ -17,6 +17,8 @@ for (const file of files) {
 
 bot.on("ready", () => {
 	console.log("Bot is online!");
+
+	bot.user.setActivity("!help", { type: "PLAYING" }).catch(console.error);
 });
 
 bot.on("message", (msg) => {
