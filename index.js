@@ -1,4 +1,4 @@
-const { Client, MessageEmbed, Collection } = require("discord.js");
+const { Client, Collection } = require("discord.js");
 const bot = new Client();
 const dotenv = require("dotenv");
 const botInfo = require("./botInfo.json");
