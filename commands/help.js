@@ -12,6 +12,7 @@ module.exports = {
 			.addField("help", "Bot Commands")
 			.addField("ping", "Ping bot")
 			.addField("info", "Bot Information")
+			.addField("clear ```<count>```", "Clear messages")
 			.setFooter("Version: " + botInfo.VERSION);
 		msg.channel.send(helpEmbed);
 	},
