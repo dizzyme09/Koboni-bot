@@ -9,10 +9,12 @@ module.exports = {
 			.setTitle("Bot Commands")
 			.setColor(0x00ff00)
 			.addField("PREFIX", botInfo.PREFIX)
-			.addField("help", "Bot Commands")
+			.addField("help", "Bot commands")
 			.addField("ping", "Ping bot")
-			.addField("info", "Bot Information")
-			.addField("clear ```<count>```", "Clear messages")
+			.addField("info", "Bot information")
+			.addField("clear <count>", "Clear messages")
+			.addField("delay", "Delay messages")
+			.addField("cooldown", "Cooldown messages")
 			.setFooter("Version: " + botInfo.VERSION);
 		msg.channel.send(helpEmbed);
 	},

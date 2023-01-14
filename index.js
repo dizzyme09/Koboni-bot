@@ -8,6 +8,7 @@ dotenv.config({ path: "./config.env" });
 const token = process.env.TOKEN;
 
 const fs = require("fs");
+
 const commands = new Collection();
 const files = fs.readdirSync("./commands/").filter((file) => file.endsWith(".js"));
 for (const file of files) {
@@ -36,6 +37,12 @@ bot.on("message", (msg) => {
 			break;
 		case "clear":
 			commands.get("clear").execute(msg, args);
+			break;
+		case "delay":
+			commands.get("delay").execute(msg);
+			break;
+		case "cooldown":
+			commands.get("cooldown").execute(msg);
 			break;
 	}
 });
