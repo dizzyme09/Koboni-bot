@@ -56,6 +56,9 @@ bot.on("message", (msg) => {
 		case "cooldown":
 			commands.get("cooldown").execute(msg);
 			break;
+		case "check-admin":
+			commands.get("check-admin").execute(msg);
+			break;
 	}
 });
 

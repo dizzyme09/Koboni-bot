@@ -12,7 +12,8 @@ module.exports = {
 			.addField("help", "Bot commands")
 			.addField("ping", "Ping bot")
 			.addField("info", "Bot information")
-			.addField("clear <count>", "Clear messages")
+			.addField("check-admin", "Check if user has Admin role")
+			.addField("clear <count>", "Clear messages (Admin only)")
 			.addField("delay", "Delay messages")
 			.addField("cooldown", "Cooldown messages")
 			.setFooter("Version: " + botInfo.VERSION);
