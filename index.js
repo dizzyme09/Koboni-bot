@@ -16,6 +16,18 @@ for (const file of files) {
 	commands.set(command.name, command);
 }
 
+bot.on("guildMemberAdd", (member) => {
+	const channel = member.guild.channels.cache.find((ch) => ch.name === "member-log");
+	const rules = member.guild.channels.cache.find((ch) => ch.name === "rules");
+
+	if (!channel) {
+		return;
+	}
+	if (member.guild.name === "redeem spawn only") {
+		channel.send(`Welcome to the server, ${member}, please read ${rules} and enjoy your stay!`);
+	}
+});
+
 bot.on("ready", () => {
 	console.log("Bot is online!");
 
