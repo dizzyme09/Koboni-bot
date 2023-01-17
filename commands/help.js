@@ -13,6 +13,8 @@ module.exports = {
 			.addField("ping", "Ping bot")
 			.addField("info", "Bot information")
 			.addField("check-admin", "Check if user has Admin role")
+			.addField("kick <user>", "Kick a user (Admin only)")
+			.addField("ban <user>", "Ban a user (Admin only)")
 			.addField("clear <count>", "Clear messages (Admin only)")
 			.addField("delay", "Delay messages")
 			.addField("cooldown", "Cooldown messages")

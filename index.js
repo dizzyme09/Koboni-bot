@@ -59,6 +59,12 @@ bot.on("message", (msg) => {
 		case "check-admin":
 			commands.get("check-admin").execute(msg);
 			break;
+		case "kick":
+			commands.get("kick").execute(msg);
+			break;
+		case "ban":
+			commands.get("ban").execute(msg);
+			break;
 	}
 });
 
