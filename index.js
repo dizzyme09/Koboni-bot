@@ -68,6 +68,9 @@ bot.on("message", (msg) => {
 		case "ban":
 			commands.get("ban").execute(msg);
 			break;
+		case "broadcast":
+			commands.get("broadcast").execute(msg, args);
+			break;
 	}
 });
 

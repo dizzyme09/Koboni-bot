@@ -16,6 +16,7 @@ module.exports = {
 			.addField("kick <user>", "Kick a user (Admin only)")
 			.addField("ban <user>", "Ban a user (Admin only)")
 			.addField("clear <count>", "Clear messages (Admin only)")
+			.addField("broadcast <start/stop>", "Broadcast a message (Admin only)")
 			.addField("delay", "Delay messages")
 			.addField("cooldown", "Cooldown messages")
 			.setFooter("Version: " + botInfo.VERSION);
