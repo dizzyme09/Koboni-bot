@@ -71,6 +71,15 @@ bot.on("message", (msg) => {
 		case "broadcast":
 			commands.get("broadcast").execute(msg, args);
 			break;
+		case "set-role":
+			commands.get("set-role").execute(msg);
+			break;
+		case "remove-role":
+			commands.get("remove-role").execute(msg);
+			break;
+		case "get-role":
+			commands.get("get-role").execute(msg);
+			break;
 	}
 });
 
