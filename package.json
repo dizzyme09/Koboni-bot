@@ -1,6 +1,6 @@
 {
 	"name": "koboni-bot",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "a bot named koboni that will help your server with her sloopy commands!",
 	"main": "index.js",
 	"scripts": {
@@ -11,7 +11,7 @@
 	"author": "dizzyme09",
 	"license": "ISC",
 	"dependencies": {
-		"discord.js": "^12.2.0",
+		"discord.js": "^12.5.3",
 		"dotenv": "^16.0.3"
 	},
 	"devDependencies": {
