@@ -3,7 +3,9 @@ const bot = new Client();
 const dotenv = require("dotenv");
 const botInfo = require("./botInfo.json");
 
-dotenv.config({ path: "./config.env" });
+if (process.env.NODE_ENV !== "production") {
+	dotenv.config({ path: "./config.env" });
+}
 
 const token = process.env.TOKEN;
 
