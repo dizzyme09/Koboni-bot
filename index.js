@@ -37,11 +37,11 @@ bot.on("ready", () => {
 });
 
 bot.on("message", (msg) => {
+	if (msg.author.bot) return;
+	if (!msg.content.startsWith(botInfo.PREFIX)) return;
+
 	let args = msg.content.substring(botInfo.PREFIX.length).split(" ");
 
-	if (!msg.content.startsWith(botInfo.PREFIX)) {
-		return;
-	}
 	switch (args[0]) {
 		case "ping":
 			commands.get("ping").execute(msg);
