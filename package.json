@@ -11,8 +11,7 @@
 	"author": "dizzyme09",
 	"license": "ISC",
 	"dependencies": {
-		"discord.js": "^12.5.3",
-		"dotenv": "^16.0.3"
+		"discord.js": "^13.0.1"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.20"

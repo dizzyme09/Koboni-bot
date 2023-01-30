@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const botInfo = require("../botInfo.json");
+const config = require("../utils/config.json");
 
 module.exports = {
 	name: "help",
@@ -8,7 +8,7 @@ module.exports = {
 		const helpEmbed = new MessageEmbed()
 			.setTitle("Bot Commands")
 			.setColor(0x00ff00)
-			.addField("PREFIX", botInfo.PREFIX)
+			.addField("PREFIX", config.PREFIX)
 			.addField("help", "Bot commands")
 			.addField("ping", "Ping bot")
 			.addField("info", "Bot information")
@@ -22,7 +22,7 @@ module.exports = {
 			.addField("broadcast <start/stop>", "Broadcast a message (Admin only)")
 			.addField("delay", "Delay messages")
 			.addField("cooldown", "Cooldown messages")
-			.setFooter("Version: " + botInfo.VERSION);
-		msg.channel.send(helpEmbed);
+			.setFooter("Version: " + config.VERSION);
+		msg.channel.send({embeds: [helpEmbed]});
 	},
 };

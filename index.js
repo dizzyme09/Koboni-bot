@@ -1,13 +1,10 @@
-const { Client, Collection } = require("discord.js");
-const bot = new Client();
-const dotenv = require("dotenv");
-const botInfo = require("./botInfo.json");
+const { Client, Collection, Intents } = require("discord.js");
+const bot = new Client({
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
+const config = require("./utils/config.json");
 
-if (process.env.NODE_ENV !== "production") {
-	dotenv.config({ path: "./config.env" });
-}
-
-const token = process.env.TOKEN;
+const token = config.TOKEN;
 
 const fs = require("fs");
 
@@ -33,14 +30,17 @@ bot.on("guildMemberAdd", (member) => {
 bot.on("ready", () => {
 	console.log("Bot is online!");
 
-	bot.user.setActivity("!help", { type: "PLAYING" }).catch(console.error);
+	bot.user.setPresence({
+		activities: [{ name: "!help" }],
+		status: "idle",
+	});
 });
 
-bot.on("message", (msg) => {
+bot.on("messageCreate", (msg) => {
 	if (msg.author.bot) return;
-	if (!msg.content.startsWith(botInfo.PREFIX)) return;
+	if (!msg.content.startsWith(config.PREFIX)) return;
 
-	let args = msg.content.substring(botInfo.PREFIX.length).split(" ");
+	let args = msg.content.substring(config.PREFIX.length).split(" ");
 
 	switch (args[0]) {
 		case "ping":

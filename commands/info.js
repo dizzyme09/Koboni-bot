@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const botInfo = require("../botInfo.json");
+const config = require("../utils/config.json");
 
 module.exports = {
 	name: "info",
@@ -13,21 +13,21 @@ module.exports = {
 				.addField("Author", "Bot Author")
 				.addField("Version", "Bot Version")
 				.addField("Bot", "All Information About Bot")
-				.setFooter("Version: " + botInfo.VERSION);
-			msg.channel.send(infoEmbed);
+				.setFooter("Version: " + config.VERSION);
+			msg.channel.send({ embeds: [infoEmbed] });
 		} else {
 			if (args[1] === "Author") {
-				msg.channel.send(botInfo.author);
+				msg.channel.send(config.author);
 			} else if (args[1] === "Version") {
-				msg.channel.send("Version " + botInfo.VERSION);
+				msg.channel.send("Version " + config.VERSION);
 			} else if (args[1] === "Bot") {
-				const botInfoEmbed = new MessageEmbed()
+				const configEmbed = new MessageEmbed()
 					.setTitle("Bot Information")
 					.setColor(0x00ff00)
-					.setDescription(botInfo.bot_desc)
-					.addField("Author", botInfo.author, true)
-					.addField("Version", botInfo.VERSION, true);
-				msg.channel.send(botInfoEmbed);
+					.setDescription(config.bot_desc)
+					.addField("Author", config.author, true)
+					.addField("Version", config.VERSION, true);
+				msg.channel.send({ embeds: [configEmbed] });
 			} else {
 				msg.channel.send("Invalid Argument");
 			}
