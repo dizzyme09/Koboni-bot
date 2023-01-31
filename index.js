@@ -38,11 +38,15 @@ bot.on("ready", () => {
 
 bot.on("messageCreate", (msg) => {
 	if (msg.author.bot) return;
-	if (!msg.content.startsWith(config.PREFIX)) return;
 
-	let args = msg.content.substring(config.PREFIX.length).split(" ");
-
+	let args = "";
+	if (msg.content.startsWith(config.PREFIX)) {
+		args = msg.content.substring(config.PREFIX.length).split(" ");
+	}
 	if (!args) return;
+
+	if (!bot.commands.has(args[0])) return;
+
 	bot.commands.get(args[0]).execute(msg, args);
 });
 
