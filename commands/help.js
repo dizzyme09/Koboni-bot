@@ -4,7 +4,7 @@ const config = require("../utils/config.json");
 module.exports = {
 	name: "help",
 	description: "Bot Commands",
-	execute(msg) {
+	execute(msg, args) {
 		const helpEmbed = new MessageEmbed()
 			.setTitle("Bot Commands")
 			.setColor(0x00ff00)

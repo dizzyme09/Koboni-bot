@@ -1,8 +1,7 @@
 module.exports = {
 	name: "ping",
 	description: "Ping Bot",
-	execute(msg) {
-		// msg.channel.bulkDelete(1);
+	execute(msg, args) {
 		msg.reply("Pong!");
 	},
 };

@@ -8,11 +8,11 @@ const token = config.TOKEN;
 
 const fs = require("fs");
 
-const commands = new Collection();
+bot.commands = new Collection();
 const files = fs.readdirSync("./commands/").filter((file) => file.endsWith(".js"));
 for (const file of files) {
 	const command = require(`./commands/${file}`);
-	commands.set(command.name, command);
+	bot.commands.set(command.name, command);
 }
 
 bot.on("guildMemberAdd", (member) => {
@@ -42,47 +42,8 @@ bot.on("messageCreate", (msg) => {
 
 	let args = msg.content.substring(config.PREFIX.length).split(" ");
 
-	switch (args[0]) {
-		case "ping":
-			commands.get("ping").execute(msg);
-			break;
-		case "info":
-			commands.get("info").execute(msg, args);
-			break;
-		case "help":
-			commands.get("help").execute(msg);
-			break;
-		case "clear":
-			commands.get("clear").execute(msg, args);
-			break;
-		case "delay":
-			commands.get("delay").execute(msg);
-			break;
-		case "cooldown":
-			commands.get("cooldown").execute(msg);
-			break;
-		case "check-admin":
-			commands.get("check-admin").execute(msg);
-			break;
-		case "kick":
-			commands.get("kick").execute(msg);
-			break;
-		case "ban":
-			commands.get("ban").execute(msg);
-			break;
-		case "broadcast":
-			commands.get("broadcast").execute(msg, args);
-			break;
-		case "set-role":
-			commands.get("set-role").execute(msg);
-			break;
-		case "remove-role":
-			commands.get("remove-role").execute(msg);
-			break;
-		case "get-role":
-			commands.get("get-role").execute(msg);
-			break;
-	}
+	if (!args) return;
+	bot.commands.get(args[0]).execute(msg, args);
 });
 
 bot.login(token);

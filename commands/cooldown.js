@@ -5,7 +5,7 @@ const cooldown = new Collection();
 module.exports = {
 	name: "cooldown",
 	description: "Cooldown messages!",
-	execute(msg) {
+	execute(msg, args) {
 		if (!cooldown.has(msg.author.id)) {
 			msg.channel.send("You are not on cooldown!");
 			cooldown.set(msg.author.id);
