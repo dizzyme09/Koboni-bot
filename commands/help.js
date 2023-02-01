@@ -12,6 +12,7 @@ module.exports = {
 			.addField("help", "Bot commands")
 			.addField("ping", "Ping bot")
 			.addField("info", "Bot information")
+			.addField("info-user <user>", "User information")
 			.addField("get-role", "Get a role Member to a user")
 			.addField("check-admin", "Check if user has Admin role")
 			.addField("set-role <user>", "Set a role Member to a user (Admin only)")
@@ -22,7 +23,7 @@ module.exports = {
 			.addField("broadcast <start/stop>", "Broadcast a message (Admin only)")
 			.addField("delay", "Delay messages")
 			.addField("cooldown", "Cooldown messages")
-			.setFooter("Version: " + config.VERSION);
-		msg.channel.send({embeds: [helpEmbed]});
+			.setFooter(`Requested by ${msg.author.username}`, msg.author.displayAvatarURL());
+		msg.channel.send({ embeds: [helpEmbed] });
 	},
 };

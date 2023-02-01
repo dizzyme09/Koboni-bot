@@ -13,7 +13,7 @@ module.exports = {
 				.addField("Author", "Bot Author")
 				.addField("Version", "Bot Version")
 				.addField("Bot", "All Information About Bot")
-				.setFooter("Version: " + config.VERSION);
+				.setFooter(`Requested by ${msg.author.username}`, msg.author.displayAvatarURL());
 			msg.channel.send({ embeds: [infoEmbed] });
 		} else {
 			if (args[1] === "Author") {
@@ -27,7 +27,8 @@ module.exports = {
 					.setDescription(config.bot_desc)
 					.addField("Author", config.author, true)
 					.addField("Version", config.VERSION, true)
-					.setThumbnail(client.user.displayAvatarURL());
+					.setThumbnail(client.user.displayAvatarURL())
+					.setFooter(`Requested by ${msg.author.username}`, msg.author.displayAvatarURL());
 				msg.channel.send({ embeds: [configEmbed] });
 			} else {
 				msg.channel.send("Invalid Argument");
