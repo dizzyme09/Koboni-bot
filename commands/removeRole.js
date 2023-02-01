@@ -1,7 +1,7 @@
 module.exports = {
 	name: "remove-role",
 	description: "Remove a role Member to a user",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		if (msg.member.roles.cache.find((role) => role.name === "Admincoy")) {
 			const user = msg.mentions.users.first();
 

@@ -2,7 +2,7 @@ var broadcast;
 module.exports = {
 	name: "broadcast",
 	description: "Broadcasts a message every 15 seconds",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		var roles = msg.member.roles.cache.find((role) => role.name === "Admincoy");
 
 		if (!roles) {

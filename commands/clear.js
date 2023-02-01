@@ -1,7 +1,7 @@
 module.exports = {
 	name: "clear",
 	description: "Clear messages!",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		var roles = msg.member.roles.cache.find((role) => role.name === "Admincoy");
 		if (roles) {
 			if (!args[1]) {

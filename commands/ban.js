@@ -1,7 +1,7 @@
 module.exports = {
 	name: "ban",
 	description: "Ban a user",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		var roles = msg.member.roles.cache.find((role) => role.name === "Admincoy");
 		if (!roles) {
 			return msg.reply("You do not have the role!");

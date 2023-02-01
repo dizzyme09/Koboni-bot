@@ -15,6 +15,6 @@ module.exports = {
 
 		if (!commands.has(args[0])) return;
 
-		commands.get(args[0]).execute(msg, args);
+		commands.get(args[0]).execute(msg, args, client);
 	},
 };

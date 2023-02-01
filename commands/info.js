@@ -4,7 +4,7 @@ const config = require("../utils/config.json");
 module.exports = {
 	name: "info",
 	description: "Bot Information",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		if (!args[1]) {
 			const infoEmbed = new MessageEmbed()
 				.setTitle("Bot Information Commands")
@@ -26,7 +26,8 @@ module.exports = {
 					.setColor(0x00ff00)
 					.setDescription(config.bot_desc)
 					.addField("Author", config.author, true)
-					.addField("Version", config.VERSION, true);
+					.addField("Version", config.VERSION, true)
+					.setThumbnail(client.user.displayAvatarURL());
 				msg.channel.send({ embeds: [configEmbed] });
 			} else {
 				msg.channel.send("Invalid Argument");

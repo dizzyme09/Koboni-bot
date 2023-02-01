@@ -1,7 +1,7 @@
 module.exports = {
 	name: "ping",
 	description: "Ping Bot",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		msg.reply("Pong!");
 	},
 };

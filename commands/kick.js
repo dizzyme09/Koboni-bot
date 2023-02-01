@@ -1,7 +1,7 @@
 module.exports = {
 	name: "kick",
 	description: "Kick a user",
-	execute(msg, args) {
+	execute(msg, args, client) {
 		var roles = msg.member.roles.cache.find((role) => role.name === "Admincoy");
 		if (roles) {
 			const userKick = msg.mentions.users.first();
