@@ -7,7 +7,7 @@ module.exports = {
 			const userKick = msg.mentions.users.first();
 
 			if (userKick) {
-				const memberKick = msg.guild.member(userKick);
+				const memberKick = msg.guild.members.cache.find((member) => member.id === userKick.id);
 
 				if (memberKick) {
 					memberKick

@@ -9,7 +9,7 @@ module.exports = {
 			const userBan = msg.mentions.users.first();
 
 			if (userBan) {
-				const memberBan = msg.guild.member(userBan);
+				const memberBan = msg.guild.members.cache.get(userBan.id);
 
 				if (memberBan) {
 					memberBan
@@ -24,8 +24,8 @@ module.exports = {
 							console.log(err);
 						});
 				} else {
-          msg.reply("That user isn't in this guild!");
-        }
+					msg.reply("That user isn't in this guild!");
+				}
 			} else {
 				msg.reply("You didn't mention the user to ban!");
 			}

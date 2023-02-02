@@ -6,7 +6,7 @@ module.exports = {
 			const user = msg.mentions.users.first();
 
 			if (user) {
-				const userSet = msg.guild.member(user);
+				const userSet = msg.guild.members.cache.find((member) => member.id === user.id);
 				if (userSet) {
 					var role = msg.guild.roles.cache.find((role) => role.name === "Member");
 					var member = msg.guild.members.cache.find((member) => member.id === user.id);
