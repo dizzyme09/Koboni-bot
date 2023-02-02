@@ -14,6 +14,7 @@ module.exports = {
 			.addField("info", "Bot information")
 			.addField("info-user <user>", "User information")
 			.addField("get-role", "Get a role Member to a user")
+			.addField("reminder | <time> | <message>", "Set a reminder")
 			.addField("check-admin", "Check if user has Admin role")
 			.addField("set-role <user>", "Set a role Member to a user (Admin only)")
 			.addField("remove-role <user>", "Remove a role Member to a user (Admin only)")
