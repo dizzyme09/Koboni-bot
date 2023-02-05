@@ -12,7 +12,7 @@ module.exports = {
 					var member = msg.guild.members.cache.find((member) => member.id === user.id);
 
 					member.roles.remove(role.id);
-					msg.reply(`Successfully removed the role from ${user.tag}`);
+					msg.reply(`Successfully removed the role from ${userSet}`);
 				} else {
 					msg.reply("That user isn't in this guild!");
 				}

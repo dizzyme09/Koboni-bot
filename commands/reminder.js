@@ -37,9 +37,6 @@ module.exports = {
 		}
 
 		if (set[2]) {
-			setTimeout(() => {
-				msg.delete();
-			}, 1000);
 			msg.reply(`I will remind you in ${set[1]}`);
 			setTimeout(() => {
 				msg.channel.send(`Reminder for ${msg.author}: ${set[2]}`);

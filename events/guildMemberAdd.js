@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
 	name: "guildMemberAdd",
 	once: false,
@@ -8,8 +10,15 @@ module.exports = {
 		if (!channel) {
 			return;
 		}
-		if (member.guild.name === "redeem spawn only") {
-			channel.send(`Welcome to the server, ${member}, please read ${rules} and enjoy your stay!`);
-		}
+		const newMemberEmbed = new MessageEmbed()
+			.setColor("#0099ff")
+			.setTitle("New Member")
+			.setAuthor(member.user.tag, member.user.displayAvatarURL())
+			.setDescription(`Welcome to the server, ${member}!`)
+			.addFields({ name: "Rules", value: `Please read the ${rules} channel!` }, { name: "Roles", value: "Please get your roles by using commands `!get-roles`" })
+			.setThumbnail(member.user.displayAvatarURL())
+			.setTimestamp();
+
+		channel.send({ embeds: [newMemberEmbed] });
 	},
 };

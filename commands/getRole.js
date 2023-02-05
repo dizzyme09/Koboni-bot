@@ -7,6 +7,6 @@ module.exports = {
 		var role = msg.guild.roles.cache.find((role) => role.name === "Member");
 
 		member.roles.add(role.id);
-		msg.reply("You have been given the role " + role.name);
+		msg.reply(`You have been given the role ${role}`);
 	},
 };

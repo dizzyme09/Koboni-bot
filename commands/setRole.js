@@ -12,7 +12,7 @@ module.exports = {
 					var member = msg.guild.members.cache.find((member) => member.id === user.id);
 
 					member.roles.add(role.id);
-					msg.reply(`Successfully set the role ${role} to ${user.tag}`);
+					msg.reply(`Successfully set the role ${role} to ${userSet}`);
 				} else {
 					msg.reply("That user isn't in this guild!");
 				}
