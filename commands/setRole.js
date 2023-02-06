@@ -1,8 +1,12 @@
+const permissions = require("../utils/permissions.json");
+
 module.exports = {
 	name: "set-role",
 	description: "Set a role Member to a user",
 	execute(msg, args, client) {
-		if (msg.member.roles.cache.find((role) => role.name === "Admincoy")) {
+		const roles = msg.guild.members.cache.get(msg.author.id)._roles;
+
+		if (roles.some((role) => permissions.roles.admin.includes(role))) {
 			const user = msg.mentions.users.first();
 
 			if (user) {

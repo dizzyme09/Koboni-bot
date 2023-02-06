@@ -1,18 +1,26 @@
+const permissions = require("../utils/permissions.json");
+
 module.exports = {
 	name: "remove-role",
 	description: "Remove a role Member to a user",
 	execute(msg, args, client) {
-		if (msg.member.roles.cache.find((role) => role.name === "Admincoy")) {
+		const roles = msg.guild.members.cache.get(msg.author.id)._roles;
+
+		if (roles.some((role) => permissions.roles.admin.includes(role))) {
 			const user = msg.mentions.users.first();
 
 			if (user) {
 				const userSet = msg.guild.members.cache.find((member) => member.id === user.id);
 				if (userSet) {
-					var role = msg.guild.roles.cache.find((role) => role.name === "Member");
-					var member = msg.guild.members.cache.find((member) => member.id === user.id);
+					const roleToRemove = permissions.roles.member;
+					const userRoles = userSet._roles;
 
-					member.roles.remove(role.id);
-					msg.reply(`Successfully removed the role from ${userSet}`);
+					if (userRoles.some((role) => roleToRemove.includes(role))) {
+						userSet.roles.remove(roleToRemove);
+						msg.reply(`Successfully removed the role from ${userSet}`);
+					} else {
+						msg.reply("That user doesn't have the role!");
+					}
 				} else {
 					msg.reply("That user isn't in this guild!");
 				}

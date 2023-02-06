@@ -1,11 +1,12 @@
+const permissions = require("../utils/permissions.json");
+
 module.exports = {
 	name: "ban",
 	description: "Ban a user",
 	execute(msg, args, client) {
-		var roles = msg.member.roles.cache.find((role) => role.name === "Admincoy");
-		if (!roles) {
-			return msg.reply("You do not have the role!");
-		} else {
+		const roles = msg.guild.members.cache.get(msg.author.id)._roles;
+
+		if (roles.some((role) => permissions.roles.admin.includes(role))) {
 			const userBan = msg.mentions.users.first();
 
 			if (userBan) {
@@ -29,6 +30,8 @@ module.exports = {
 			} else {
 				msg.reply("You didn't mention the user to ban!");
 			}
+		} else {
+			msg.reply("You do not have the role!");
 		}
 	},
 };
