@@ -1,4 +1,5 @@
 const permissions = require("../utils/permissions.json");
+const authority = require("../utils/authority.json");
 
 module.exports = {
 	name: "set-role",
@@ -6,17 +7,21 @@ module.exports = {
 	execute(msg, args, client) {
 		const roles = msg.guild.members.cache.get(msg.author.id)._roles;
 
-		if (roles.some((role) => permissions.roles.admin.includes(role))) {
+		if (roles.some((role) => permissions.adminOnly.roles.includes(role))) {
 			const user = msg.mentions.users.first();
 
 			if (user) {
 				const userSet = msg.guild.members.cache.find((member) => member.id === user.id);
 				if (userSet) {
-					var role = msg.guild.roles.cache.find((role) => role.name === "Member");
-					var member = msg.guild.members.cache.find((member) => member.id === user.id);
+					const roleToAdd = authority.roles.member;
+					const userRoles = userSet._roles;
 
-					member.roles.add(role.id);
-					msg.reply(`Successfully set the role ${role} to ${userSet}`);
+					if (userRoles.some((role) => roleToAdd.includes(role))) {
+						msg.reply("That user already has the role!");
+					} else {
+						userSet.roles.add(roleToAdd);
+						msg.reply(`Successfully set the role <@&${roleToAdd}> to ${userSet}`);
+					}
 				} else {
 					msg.reply("That user isn't in this guild!");
 				}

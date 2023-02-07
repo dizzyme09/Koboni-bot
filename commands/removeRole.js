@@ -1,4 +1,5 @@
 const permissions = require("../utils/permissions.json");
+const authority = require("../utils/authority.json");
 
 module.exports = {
 	name: "remove-role",
@@ -6,13 +7,13 @@ module.exports = {
 	execute(msg, args, client) {
 		const roles = msg.guild.members.cache.get(msg.author.id)._roles;
 
-		if (roles.some((role) => permissions.roles.admin.includes(role))) {
+		if (roles.some((role) => permissions.adminOnly.roles.includes(role))) {
 			const user = msg.mentions.users.first();
 
 			if (user) {
 				const userSet = msg.guild.members.cache.find((member) => member.id === user.id);
 				if (userSet) {
-					const roleToRemove = permissions.roles.member;
+					const roleToRemove = authority.roles.member;
 					const userRoles = userSet._roles;
 
 					if (userRoles.some((role) => roleToRemove.includes(role))) {

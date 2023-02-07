@@ -6,7 +6,7 @@ module.exports = {
 	execute(msg, args, client) {
 		const roles = msg.guild.members.cache.get(msg.author.id)._roles;
 
-		if (roles.some((role) => permissions.roles.admin.includes(role))) {
+		if (roles.some((role) => permissions.adminOnly.roles.includes(role))) {
 			const userBan = msg.mentions.users.first();
 
 			if (userBan) {
