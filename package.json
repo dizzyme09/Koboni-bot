@@ -11,7 +11,8 @@
 	"author": "dizzyme09",
 	"license": "ISC",
 	"dependencies": {
-		"discord.js": "^13.0.1"
+		"discord.js": "^13.0.1",
+		"firebase-admin": "^11.5.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.20"

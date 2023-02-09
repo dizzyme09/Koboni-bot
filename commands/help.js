@@ -12,6 +12,7 @@ module.exports = {
 			.addField("help", "Bot commands")
 			.addField("ping", "Ping bot")
 			.addField("info", "Bot information")
+			.addField("qna", "QnA")
 			.addField("info-user <user>", "User information")
 			.addField("get-role", "Get a role Member to a user")
 			.addField("reminder | <time> | <message>", "Set a reminder")
