@@ -13,4 +13,13 @@ const getQnA = (callback) => {
 	);
 };
 
-module.exports = { getQnA };
+const addQnA = (question, answer, callback) => {
+	firebase.ref(`qna`).push().set({
+		answer: answer,
+		question: question,
+	});
+
+	callback("Add QnA Success");
+};
+
+module.exports = { getQnA, addQnA };
