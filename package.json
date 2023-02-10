@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"command": "node deploy-command.js"
+		"command": "node deploy-commands.js"
 	},
 	"keywords": [],
 	"author": "dizzyme09",

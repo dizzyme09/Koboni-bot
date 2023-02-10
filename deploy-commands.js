@@ -3,7 +3,9 @@ const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const { TOKEN, clientId, guildId } = require("./utils/config.json");
 
-const commands = [new SlashCommandBuilder().setName("ping").setDescription("Replies with Pong!"), new SlashCommandBuilder().setName("prefix").setDescription("Replies with the prefix!")];
+const commands = [new SlashCommandBuilder().setName("ping").setDescription("Replies with Pong!"), new SlashCommandBuilder().setName("prefix").setDescription("Replies with the prefix!")].map(
+	(command) => command.toJSON()
+);
 
 const rest = new REST({ version: "9" }).setToken(TOKEN);
 
