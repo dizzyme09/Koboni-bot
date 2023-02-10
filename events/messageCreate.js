@@ -11,7 +11,6 @@ module.exports = {
 		if (msg.content.startsWith(config.PREFIX)) {
 			args = msg.content.substring(config.PREFIX.length).split(" ");
 		}
-		if (!args) return;
 
 		if (!commands.has(args[0])) return;
 

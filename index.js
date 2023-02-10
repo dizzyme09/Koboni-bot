@@ -18,4 +18,15 @@ for (const file of eventFiles) {
 	}
 }
 
+client.on("interactionCreate", (interaction) => {
+	if (!interaction.isCommand()) return;
+
+	const { commandName } = interaction;
+	if (commandName === "ping") {
+		interaction.reply("Pong!");
+	} else if (commandName === "prefix") {
+		interaction.reply("The prefix is: " + config.PREFIX);
+	}
+});
+
 client.login(token);
